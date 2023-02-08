@@ -1,6 +1,13 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { getContact, getContacts } from "../contacts";
+
+export async function getLoader(){
+  const contacts = await getContacts();
+  return {contacts};
+}
 
 export default function Root() {
+  const { contacts } = useLoaderData();
     return (
       <>
         <div id="sidebar">
@@ -39,7 +46,9 @@ export default function Root() {
             </ul>
           </nav>
         </div>
-        <div id="detail"><Outlet/></div>
+        <div id="detail">
+          <Outlet/>
+        </div>
         
       </>
     );
