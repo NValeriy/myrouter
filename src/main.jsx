@@ -5,7 +5,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Root, {loader as rootLoader} from './routes/root.jsx';
 import ErrorPage from './error-page';
 import Contact from './routes/contact';
-import { StrictMode } from 'react'
+//import { StrictMode } from 'react'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </React.StrictMode>,
 )
